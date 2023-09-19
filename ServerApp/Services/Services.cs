@@ -1,7 +1,6 @@
 ﻿using ServerApp.Models;
 using CommonLib.Models;
 
-
 namespace ServerApp.Services
 {
     public static class ServerOperations

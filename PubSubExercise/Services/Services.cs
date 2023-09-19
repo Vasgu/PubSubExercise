@@ -41,7 +41,7 @@ namespace ClientApp.Services
                     var subscribeBytes = Encoding.ASCII.GetBytes(CommandConverter.Serialize(req));
                     TcpClient.GetStream().Write(subscribeBytes, 0, subscribeBytes.Length);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Succeded!");
+                    Console.WriteLine("Request sent!");
                     Console.ResetColor();
                 }
                 else

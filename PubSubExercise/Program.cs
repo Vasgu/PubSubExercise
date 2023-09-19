@@ -51,7 +51,7 @@ namespace ClientApp
                             }
                         case (int)RequestType.Exit:
                             Console.WriteLine("Exiting...");
-                            continue;
+                            return;
                         default:
                             Console.WriteLine($"'{choice}' is not a valid choice.");
                             continue;
