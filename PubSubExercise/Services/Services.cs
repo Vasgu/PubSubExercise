@@ -17,12 +17,10 @@ namespace ClientApp.Services
         {
             try
             {
-                Console.WriteLine($"Connecting to {localIp} with port {port} ...");
+                //Console.WriteLine($"Connecting to {localIp} with port {port} ...");
                 if (TcpClient != null && TcpClient.Connected) return;
                 TcpClient = new TcpClient(localIp, port);
-                if (TcpClient.Connected)
-                    Console.WriteLine("Connected!");
-                else
+                if (!TcpClient.Connected)
                     Console.WriteLine("Error on tcpClient connection!");
             }
             catch (Exception ex)
@@ -42,6 +40,9 @@ namespace ClientApp.Services
                 {
                     var subscribeBytes = Encoding.ASCII.GetBytes(CommandConverter.Serialize(req));
                     TcpClient.GetStream().Write(subscribeBytes, 0, subscribeBytes.Length);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Succeded!");
+                    Console.ResetColor();
                 }
                 else
                 {
